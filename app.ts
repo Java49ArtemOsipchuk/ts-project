@@ -1,43 +1,24 @@
-//HW #30
-const aCodeAscii: number = 'a'.charCodeAt(0);
-const zCodeAscii: number = 'z'.charCodeAt(0);
-const nEnglishLetters = zCodeAscii - aCodeAscii + 1;    
-function shiftCipher(str: string, shift: number = 1): string {
-    //TODO
-    //for each lower case letter (a-z) you should 
-    //perform code ASCII on a given shift (add)
-    //shift should be in cycle of lower case letters
-    // code ASCII 'z' + 2 = code ASCII 'b'
-    //examples:
-    //shiftCipher("abz.", 3) => "dec."
-    const arStr = Array.from(str);
-    const arRes = arStr.map(sym => {
-        let res: string = sym;
-        if (sym <= 'z' && sym >= 'a') {
-            const actualShift = (sym.charCodeAt(0) - aCodeAscii + shift) % nEnglishLetters;
-           res =  String.fromCharCode(aCodeAscii + actualShift);
-        }
-        
-    })
-    return arRes.join('');
-}
-function shiftDecipher(str: string, shift: number = 1): string {
-    //TODO
-    //for each lower case letter (a-z) you should 
-    //perform code ASCII on a given shift (subtract)
-    //shift should be in cycle of lower case letters
-    // code ASCII 'z' - 2 = code ASCII 'x'
-    //examples:
-    //shiftCipher("dec.", 3) => "abz."
-    const arStr = Array.from(str);
-    const arRes = arStr.map(sym => {
-        let res: string = sym;
-        if (sym <= 'z' && sym >= 'a') {
-        const actualShift = (zCodeAscii - sym.charCodeAt(0) + shift) % nEnglishLetters;
-        res =  String.fromCharCode(zCodeAscii - actualShift);
-        }
-        return res;
-    })
-    return arRes.join('');
-}
-console.log(shiftDecipher("mnl", 1000));
+// import { Shape } from "./ShapeInterface";
+// import { Rectangle } from "./Rectangle";
+// import { Square } from "./Square";
+// import { CipherDecipher } from "./CipherDecipher";
+// import { ShapesContainer } from "./ShapesContainer";
+// const shapes: ShapesContainer = new ShapesContainer ([
+//     new Rectangle(3, 4),
+//     new Square(5),
+//     new ShapesContainer([new ShapesContainer([new Square(10),new Square(4)]),
+//      new Rectangle(6, 4)])
+// ]);
+
+import { WageEmployee } from "./WageEmployee";
+
+// const totalSquare: number = shapes.getSquare();
+// console.log(totalSquare)
+// // const cipherDecipher: CipherDecipher = new CipherDecipher(32, 127, 10);
+
+// // console.log(cipherDecipher.cipher("Hello World!"));
+// // console.log(cipherDecipher.decipher("Rovvy*ay|vn+"));
+const employee: WageEmployee = new WageEmployee(123, "Vasya", 2000, "QA",
+ 10000, 100,50);
+ console.log(employee.id);
+ employee.basicSalary = 6000;
